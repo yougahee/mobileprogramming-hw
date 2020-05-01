@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".third.MainActivity"
+    android:orientation="vertical">
+    
+    <CheckBox
+        android:id="@+id/checkbox_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="포켓몬 여행 시작!"
+        />
+    
+    <TextView
+        android:id="@+id/tv_student_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/studentId"
+        android:layout_margin="10dp"/>
+    
+    <LinearLayout
+        android:id="@+id/ll_radiogroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+        android:visibility="gone"
+        >
+        
+        <RadioGroup
+            android:id="@+id/radiogroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <RadioButton
+                android:id="@+id/radio_chicorita"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="치코리타"
+                />
+
+            <RadioButton
+                android:id="@+id/radio_bkain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="브케인"
+                />
+
+            <RadioButton
+                android:id="@+id/radio_riaco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="리아코"
+                />
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btn_select_complete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="선택완료"
+            />
+        
+    </LinearLayout>
+    
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:src="@drawable/samuel_oak"
+        />
+
+
+</LinearLayout>
