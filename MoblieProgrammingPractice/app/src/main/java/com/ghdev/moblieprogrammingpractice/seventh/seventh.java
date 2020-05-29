@@ -103,7 +103,6 @@ public class seventh extends AppCompatActivity {
         });
     }
 
-
     //반영버튼
     public void clickBtnSave(final int year, final int month, final int dayOfMonth){
 
