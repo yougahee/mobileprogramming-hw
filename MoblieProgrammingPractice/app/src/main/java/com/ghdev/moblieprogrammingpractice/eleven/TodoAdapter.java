@@ -14,9 +14,11 @@ import com.ghdev.moblieprogrammingpractice.R;
 public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.Holder> {
 
 	private ArrayList<Todo> todos;
+	private DBHelper dbHelper;
 
 	public TodoAdapter(ArrayList<Todo> todos) {
 		this.todos = todos;
+		notifyDataSetChanged();
 	}
 
 	public static class Holder extends RecyclerView.ViewHolder {
@@ -36,6 +38,7 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.Holder> {
 	public Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 		View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_todolist, parent, false);
 
+		dbHelper = DBHelper.getInstance(parent.getContext().getApplicationContext());
 		Holder viewholder = new Holder(view);
 		return viewholder;
 	}
@@ -48,11 +51,12 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.Holder> {
 			@Override
 			public void onClick( View v) {
 
+				dbHelper.delete(todos.get(position).getTodoName());
+
 				todos.remove(position);
 				notifyDataSetChanged();
 			}
 		});
-
 	}
 
 	@Override

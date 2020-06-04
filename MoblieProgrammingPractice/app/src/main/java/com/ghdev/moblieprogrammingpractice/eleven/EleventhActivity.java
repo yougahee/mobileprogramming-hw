@@ -1,6 +1,7 @@
 package com.ghdev.moblieprogrammingpractice.eleven;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,6 +17,8 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 public class EleventhActivity extends AppCompatActivity {
+
+	private DBHelper dbHelper;
 
 	RecyclerView rv_todo;
 	EditText et_todo;
@@ -41,11 +44,17 @@ public class EleventhActivity extends AppCompatActivity {
 		btn_todo = (Button) findViewById(R.id.btn_send_text);
 		rv_todo = (RecyclerView) findViewById(R.id.rv_eleventh_act);
 
+		dbHelper = DBHelper.getInstance(getApplicationContext());
 	}
 
 
 	private void setRecyclerView() {
 		list = new ArrayList<>();
+
+		list = dbHelper.getAllTodo();
+
+		Log.v("TAGG", list.toString());
+
 		todoAdapter = new TodoAdapter(list);
 
 		rv_todo.setAdapter(todoAdapter);
@@ -62,14 +71,13 @@ public class EleventhActivity extends AppCompatActivity {
 				if(et_todo.getText().toString().equals("")) {
 					Toast.makeText(getApplicationContext(),"할 일을 입력해주세요.", Toast.LENGTH_SHORT).show();
 				}else{
-
-					Log.v("TAGG", et_todo.getText().toString());
 					tododata = new Todo(et_todo.getText().toString());
+
+					dbHelper.insert(tododata);
 					list.add(tododata);
 
 					et_todo.setText(null);
 					todoAdapter.notifyDataSetChanged();
-
 				}
 			}
 		});
