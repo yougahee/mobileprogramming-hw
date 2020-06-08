@@ -1,7 +1,5 @@
 package com.ghdev.moblieprogrammingpractice.eleven;
 
-import java.util.ArrayList;
-
 public class TodoDBContract {
 
 	private TodoDBContract() { }
